@@ -20,7 +20,7 @@ import { Blog } from "@/model.ts";
 export function CommentSection(props: {
   blog: Blog;
   callbackfn: (comment: any) => React.JSX.Element;
-  onChange: (e) => any;
+  onChange: (e: any) => any;
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   onClick: () => Promise<axios.AxiosResponse<any>>;

@@ -16,7 +16,7 @@ export const useSession = () => {
   }, []);
   const login = (username: string, passoword: string) => {
     loginUser(username, passoword).then((r) => dispatch(setUser(r)));
-    if (user != null) {
+    if (user?.name != null) {
       navigate("/blogs");
     }
   };
@@ -27,7 +27,7 @@ export const useSession = () => {
   const register = async (username: string, password: string) => {
     registerUser(username, password).then((user) => dispatch(setUser(user)));
 
-    if (user != null) {
+    if (user?.name != null) {
       navigate("/blogs");
     }
   };

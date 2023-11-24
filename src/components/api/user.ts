@@ -10,7 +10,12 @@ export const loginUser = async (username: string, password: string) => {
       password: password,
     })
     .then((response) => {
-      return response.data as User;
+      if (response.status == 200) {
+        return response.data as User;
+      }
+    })
+    .catch(() => {
+      console.log("Error logging in. Wrong password or Account doesn't exist");
     });
 };
 
@@ -21,6 +26,11 @@ export const registerUser = async (username: string, password: string) => {
       password: password,
     })
     .then((response) => {
-      return response.data as User;
+      if (response.status == 201) {
+        return response.data as User;
+      }
+    })
+    .catch(() => {
+      console.log("Error registering. User already exists.");
     });
 };
